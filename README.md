@@ -12,7 +12,7 @@ First, dump your existing postgres db:
 sudo -u postgres pg_dumpall -c > phpbb_pg_dump.sql
 ```
 
-Clone this repo to your discord host. Put `phpbb_pg_dump.sql` in this repo's root.
+Clone this repo to your discourse host. Put `phpbb_pg_dump.sql` in this repo's root.
 ```
 git clone https://github.com/ftc2/ppbb2discourse_pg2mysql.git
 ```
