@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgres:14-bullseye
+    container_name: phpbb-postgres
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+      - ./dumptools:/dumptools
+      - ./phpbb_pg_dump.sql:/restore/restorefile:ro
+    # ports:
+    #   - 9876:5432
+    environment:
+      - POSTGRES_PASSWORD=asdf123
+  mariadb:
+    image: mariadb:10.11
+    container_name: phpbb-mariadb
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./mariadb:/var/lib/mysql
+      - ./dumptools:/dumptools
+    ports:
+      - 9875:3306
+    environment:
+      MARIADB_ROOT_PASSWORD: asdf123
