@@ -17,7 +17,7 @@ services:
     volumes:
       - ./mariadb:/var/lib/mysql
       - ./dumptools:/dumptools
-    ports:
-      - 9875:3306
+    # ports:
+      # - 9875:3306
     environment:
-      MARIADB_ROOT_PASSWORD: asdf123
+      - MARIADB_ROOT_PASSWORD=asdf123
