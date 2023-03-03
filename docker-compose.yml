@@ -7,7 +7,7 @@ services:
       - ./dumptools:/dumptools
       - ./phpbb_pg_dump.sql:/restore/restorefile:ro
     # ports:
-    #   - 9876:5432
+    #   - "9876:5432"
     environment:
       - POSTGRES_PASSWORD=asdf123
   mariadb:
@@ -18,6 +18,6 @@ services:
       - ./mariadb:/var/lib/mysql
       - ./dumptools:/dumptools
     # ports:
-      # - 9875:3306
+      # - "9875:3306"
     environment:
       - MARIADB_ROOT_PASSWORD=asdf123
