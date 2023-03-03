@@ -1,4 +1,4 @@
-# ppbb2discourse_pg2mysql
+# phpbb2discourse_pg2mysql
 Convert phpBB 3.2 PostgreSQL db to MySQL for migration to Discourse
 
 ## Why
