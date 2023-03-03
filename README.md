@@ -25,7 +25,7 @@ sudo docker compose up -d
 # restore postgres dump
 sudo docker exec -it phpbb-postgres psql -U postgres -f /restore/restorefile
 # set postgres pw to asdf123
-sudo docker exec -it phpbb-postgres psql -U postgres -c '\password'
+sudo docker exec -it phpbb-postgres psql -U postgres -c "ALTER USER postgres PASSWORD 'asdf123';"
 
 # generate dumps for mysql
 sudo docker exec -it phpbb-postgres apt update
