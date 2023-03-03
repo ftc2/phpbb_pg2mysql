@@ -14,7 +14,7 @@ sudo -u postgres pg_dumpall -c > phpbb_pg_dump.sql
 
 Clone this repo to your discourse host. Put `phpbb_pg_dump.sql` in this repo's root.
 ```
-git clone https://github.com/ftc2/ppbb2discourse_pg2mysql.git
+git clone https://github.com/ftc2/phpbb2discourse_pg2mysql.git
 ```
 
 Perform the following actions:
@@ -45,7 +45,7 @@ I **strongly** suggest having the importer connect directly to the `phpbb-mariad
 
 You can connect your discourse import container like this:
 ```
-sudo docker network connect ppbb2discourse_pg2mysql_default import
+sudo docker network connect phpbb2discourse_pg2mysql_default import
 ```
 
 Then, the import script's `settings.yml` should look like this:
