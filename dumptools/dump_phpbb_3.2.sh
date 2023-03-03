@@ -1136,4 +1136,4 @@ if [ $? -ne 0 ];then
 fi
 popd
 echo Now you can copy $MYPATH/dump_phpbb.zip file to the target server, unzip it and run the import script.
-read -p "Press [Enter] key to continue..."
+# read -p "Press [Enter] key to continue..."
