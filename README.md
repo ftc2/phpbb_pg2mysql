@@ -2,7 +2,9 @@
 Convert phpBB 3.2 PostgreSQL db to MySQL for migration to Discourse, XenForo, or other forum software
 
 ## Why
-The [current phpBB import script](https://github.com/discourse/discourse/tree/main/script/import_scripts/phpbb3) does not support postgres. It will eventually be deprecated in favor of the much faster [bulk importer](https://github.com/discourse/discourse/blob/main/script/bulk_import/phpbb_postgresql.rb), but it's not ready yet (maybe in 6-12mo?).
+The [current Discourse phpBB import script](https://github.com/discourse/discourse/tree/main/script/import_scripts/phpbb3) does not support postgres. It will eventually be deprecated in favor of the much faster [bulk importer](https://github.com/discourse/discourse/blob/main/script/bulk_import/phpbb_postgresql.rb), but it's not ready yet (maybe in 6-12mo?).
+
+XenForo only supports migrations from MySQL db sources.
 
 ## How
 Here is my janky solution. Basically any migration is jank, though, right?
@@ -39,7 +41,7 @@ sudo docker exec -it phpbb-mariadb sh -c 'mysql -h127.0.0.1 -P3306 -uroot -pasdf
 sudo docker exec -it phpbb-mariadb /dumptools/dump_phpbb/import_phpbb.sh
 ```
 
-Finally, follow the [import steps](https://meta.discourse.org/t/migrate-a-phpbb3-forum-to-discourse/30810) and **move on with your life...**
+Finally, follow the [Discourse import steps](https://meta.discourse.org/t/migrate-a-phpbb3-forum-to-discourse/30810) and **move on with your life...**
 
 I **strongly** suggest having the importer connect directly to the `phpbb-mariadb` container instead of doing yet another intermediary dump.
 
@@ -48,7 +50,7 @@ You can connect your discourse import container like this:
 sudo docker network connect phpbb_pg2mysql_default import
 ```
 
-Then, the import script's `settings.yml` should look like this:
+Then, the discourse import script's `settings.yml` should look like this:
 ```
 database:
   type: MySQL # currently only MySQL is supported
