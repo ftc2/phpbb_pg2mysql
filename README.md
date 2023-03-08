@@ -1,5 +1,5 @@
-# phpbb2discourse_pg2mysql
-Convert phpBB 3.2 PostgreSQL db to MySQL for migration to Discourse
+# phpbb_pg2mysql
+Convert phpBB 3.2 PostgreSQL db to MySQL for migration to Discourse, XenForo, or other forum software
 
 ## Why
 The [current phpBB import script](https://github.com/discourse/discourse/tree/main/script/import_scripts/phpbb3) does not support postgres. It will eventually be deprecated in favor of the much faster [bulk importer](https://github.com/discourse/discourse/blob/main/script/bulk_import/phpbb_postgresql.rb), but it's not ready yet (maybe in 6-12mo?).
@@ -14,7 +14,7 @@ sudo -u postgres pg_dumpall -c > phpbb_pg_dump.sql
 
 Clone this repo to your discourse host. Put `phpbb_pg_dump.sql` in this repo's root.
 ```
-git clone https://github.com/ftc2/phpbb2discourse_pg2mysql.git
+git clone https://github.com/ftc2/phpbb_pg2mysql.git
 ```
 
 Perform the following actions:
@@ -45,7 +45,7 @@ I **strongly** suggest having the importer connect directly to the `phpbb-mariad
 
 You can connect your discourse import container like this:
 ```
-sudo docker network connect phpbb2discourse_pg2mysql_default import
+sudo docker network connect phpbb_pg2mysql_default import
 ```
 
 Then, the import script's `settings.yml` should look like this:
