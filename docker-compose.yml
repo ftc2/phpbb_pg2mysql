@@ -2,6 +2,7 @@ services:
   postgres:
     image: postgres:14-bullseye
     container_name: phpbb-postgres
+    restart: unless-stopped
     volumes:
       - ./postgres:/var/lib/postgresql/data
       - ./dumptools:/dumptools
@@ -13,6 +14,7 @@ services:
   mariadb:
     image: mariadb:10.11
     container_name: phpbb-mariadb
+    restart: unless-stopped
     command: --default-authentication-plugin=mysql_native_password
     volumes:
       - ./mariadb:/var/lib/mysql
